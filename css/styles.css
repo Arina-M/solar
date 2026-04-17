@@ -86,9 +86,9 @@ ul{
     color: var(--color-main--lt);
     font-size: 18px;
     border-radius: 24px;
-    padding: 18px 24px;
-    /* width: 241px; */
-    /* height: 56px; */
+    /* padding: 18px 24px; */
+    width: 241px;
+    height: 56px;
     cursor: pointer;
     text-transform: capitalize;
     font-weight: 600;
@@ -105,9 +105,16 @@ ul{
     background: transparent;
 }
 
-.primary-btn svg, .secondary-btn svg{
+.primary-btn svg{
     width: 24px;
     height: 24px;
+    fill: var(--color-main--lt);
+}
+
+.secondary-btn svg{
+    width: 17px;
+    height: 20px;
+    fill: var(--color-main--lt);
 }
 
 /* ------------------MAIN STYLES------------------ */
@@ -154,10 +161,12 @@ body.dark{
     border: none;
     color: transparent;
     background: none;
+    cursor: pointer;
 }
 .theme-toggle svg{
     width: 24px;
     height: 24px;
+    fill: var(--color-main--lt);
 }
 
 /* --- HEADER END --- */
@@ -166,6 +175,11 @@ body.dark{
 /* --- HERO --- */
 .hero{
     padding-top: 100px;
+}
+
+.hero-container{
+    display: flex;
+    justify-content: space-between;
 }
 
 .caption-h1{
@@ -202,6 +216,59 @@ body.dark{
     gap: 12px;
 }
 
+.right-side{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.hero__image{
+    width: 600px;
+    position: relative;
+    overflow: visible;
+}
+
+.hero__image::before{
+content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle,
+        rgba(252, 205, 3, 1) 0%,
+        rgba(247, 255, 0, 1) 100%,
+        transparent 12%
+    );
+    filter: blur(200px);
+    z-index: -1;
+}
+
+.hero__list-features{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.hero__list-features svg{
+    width: 32px;
+    height: 32px;
+    fill: var(--color-main--lt);
+    opacity: 0.8;
+}
+
+.list-features-item{
+    font-family: var(--font-roboto);
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--color-main--lt);
+    opacity: 0.8;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
 
 /* --- HERO END --- */

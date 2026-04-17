@@ -22,53 +22,64 @@
 <body>
 
     <header>
-        <div class="container">
-            <div class="header-container">
-                <img src="./assets/images/logo.svg" alt="logo" class="header__logo"> 
-                <nav>
-                    <ul class="header__list-menu">
-                        <li class="list-menu-item"><a href="" class="list-menu-link">How It Works</a></li>
-                        <li class="list-menu-item"><a href="" class="list-menu-link">Savings calculator</a></li>
-                        <li class="list-menu-item"><a href="" class="list-menu-link">Why solar</a></li>
-                        <li class="list-menu-item"><a href="" class="list-menu-link">FAQs</a></li>
-                    </ul> 
-                </nav>
-                <div class="header__buttons">
-                    <button type="button" class="secondary-btn">
-                        <svg>
-                            <use href="./assets/images/symbol-defs.svg#icon-calculator"></use>
-                        </svg>
-                        Check your savings
-                    </button>
-                    <button class="theme-toggle" id="theme-toggle">
-                        <svg width="45" hight="45">
-                            <use href="./assets/images/symbol-defs.svg#icon-sun"></use>
-                        </svg>
-                    </button>
-                </div>
-           </div>
+        <div class=" container header-container">
+            <img src="./assets/images/logo.svg" alt="logo" class="header__logo"> 
+            <nav aria-label="Main navigation">
+                <ul class="header__list-menu">
+                    <li class="list-menu-item"><a href="#" class="list-menu-link">How It Works</a></li>
+                    <li class="list-menu-item"><a href="#" class="list-menu-link">Savings calculator</a></li>
+                    <li class="list-menu-item"><a href="#" class="list-menu-link">Why solar</a></li>
+                    <li class="list-menu-item"><a href="#" class="list-menu-link">FAQs</a></li>
+                </ul> 
+            </nav>
+            <div class="header__buttons">
+                <button type="button" class="secondary-btn">
+                    <svg>
+                        <use href="./assets/images/symbol-defs.svg#icon-calculator"></use>
+                    </svg>
+                    Check your savings
+                </button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg>
+                        <use href="./assets/images/symbol-defs.svg#icon-sun"></use>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1 class="caption-h1">
-                    Stop Renting </br>Your Power. <br> <span class="accent">Own It.</span>
-                </h1>
-                <p class="hero__text"><span>Save up to 70%</span> on your monthly electric bills and protect your home from rising utility rates with custom solar solutions.</p>
-                <div class="hero__buttons">
-                    <button type="button" class="primary-btn">
-                        Get my free quote 
-                        <svg width="45" hight="45">
-                            <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
-                        </svg>
-                    </button>
-                    <button type="button" class="secondary-btn">
-                        Learn more
-                    </button>
+        <section class="container hero">
+            <div class="hero-container">
+                <div class="left-side">
+                    <h1 class="caption-h1">
+                        Stop Renting <br>Your Power. <br> <span class="accent">Own It.</span>
+                    </h1>
+                    <p class="hero__text"><span>Save up to 70%</span> on your monthly electric bills and protect your home from rising utility rates with custom solar solutions.</p>
+                    <div class="hero__buttons">
+                        <button type="button" class="primary-btn">
+                            Get my free quote 
+                            <svg>
+                                <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                            </svg>
+                        </button>
+                        <button type="button" class="secondary-btn">
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="hero__image">
+                        <img src="./assets/images/house.png" alt="House with solar panels on the roof">
+                    </div>    
                 </div>
             </div>
+            <ul class="hero__list-features">
+                <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-key"></use></svg>Licensed & Insured</li>
+                <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-shield-tick"></use></svg>BBB Accredited</li>
+                <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-medal"></use></svg>5,000+ Homes Served</li>
+                <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-like"></use></svg>Vetted Installers</li>
+            </ul>
             
         </section>
 
