@@ -298,19 +298,13 @@ content: '';
 /* --- CALCULATOR SECTION --- */
 
 .calculator{
-    margin-top: 240px;
+    padding-top: 240px;
+    padding-bottom: 120px;
 }
 
 .calculator_header{
     text-align: center;
 }
-
-
-
-
-
-
-
 
 
 /* --- CALCULATOR BODY --- */
@@ -592,6 +586,16 @@ input[type="range"]::-moz-range-thumb {
     opacity: 0.8;
 }
 
+.disclaimer{
+    font-family: var(--font-source-sans-3);
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.6;
+    color: var(--color-main--lt);
+    margin-top: 60px;
+
+}
+
 /* --- RESPONSIVE --- */
 
 @media (max-width: 992px) {
@@ -613,3 +617,76 @@ input[type="range"]::-moz-range-thumb {
         font-size: 28px;
     }
 }
+
+/* --- CALCULATOR SECTION END --- */
+
+
+/* --- WHY GO SOLAR SECTION --- */
+
+.why-go-solar{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.why-go-solar__list{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.why-go-solar__list-item{
+    background: var(--item-secondary-bg--lt);
+    border-radius: 16px;
+    padding: 40px 32px;
+    border: 1px solid #16161633;
+    max-width: 387px;
+}
+
+.saving-card__line {
+    width: 64px;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
+.saving-card__value {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color:  var(--color-main--lt);
+}
+
+.saving-card__value span {
+    color: var(--color-accent);
+}
+
+.saving-card__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-main--lt);
+}
+
+.saving-card__text {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 16px;
+}
+
+
+.saving-card__tag {
+    display: inline-block;
+    background: var(--tag--lt);
+    padding: 6px 12px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-family: var(--font-source-sans-3);
+    font-weight: 600;
+}
+
+
+
