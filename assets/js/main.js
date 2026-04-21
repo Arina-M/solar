@@ -32,7 +32,10 @@ let state = {
 // --- HELPERS ---
 
 function format(num) {
-    return Math.round(num).toLocaleString("en-US");
+    // return Math.round(num).toLocaleString("en-US");
+    return Math.round(num)
+        .toLocaleString("en-US")
+        .replace(/,/g, " ");
 }
 
 function setProgress(range) {

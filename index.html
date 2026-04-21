@@ -54,7 +54,7 @@
                 <div class="hero-container">
                     <div class="left-side">
                         <h1 class="caption-h1">
-                            Stop Renting <br>Your Power. <br> <span class="accent">Own It.</span>
+                            Stop Renting <br>Your Power. <br> <span class="accent accent-title">Own It.</span>
                         </h1>
                         <p class="hero__text"><span>Save up to 70%</span> on your monthly electric bills and protect your home from rising utility rates with custom solar solutions.</p>
                         <div class="hero__buttons">
@@ -117,7 +117,7 @@
                                 <div>$<span id="billValue">120</span></div>
                             </div>
 
-                            <input type="range" id="billRange" min="50" max="300" value="120">
+                            <input type="range" id="billRange" min="50" max="400" value="120">
 
                             <div class="presets">
                                 <button data-value="75">$75</button>
@@ -171,46 +171,41 @@
 
                         <div class="result-grid">
                             <div class="secondary-card">
-                                <p>Annual Savings</p>
-                                <span class="orange">$<span id="annual">0</span></span>
+                                <p>Annual<br>Savings</p>
+                                <span class="accent">$<span id="annual">0</span></span>
                             </div>
 
                             <div class="secondary-card">
-                                <p>Payback Period</p>
+                                <p>Payback<br>Period</p>
                                 <span class="orange"><span id="payback">0</span> Years</span>
                             </div>
 
                             <div class="secondary-card">
-                                <p>Return on Investment</p>
+                                <p>Return on<br>Investment</p>
                                 <span class="green"><span id="roi">0</span>%</span>
                             </div>
                         </div>
 
-                        <div class="primary-card">
+                        <div class="primary-card right-bottom-card">
                             <p>Cost Breakdown</p>
-
                             <div class="row">
                                 <span>System Cost (6kW)</span>
-                                <span id="systemCost">$15000</span>
+                                <span id="systemCost" class="bold">$15000</span>
                             </div>
-
                             <div class="row">
                                 <span>Federal Tax Credit (30%)</span>
-                                <span class="green" id="taxCredit">-$4500</span>
+                                <span class="green bold" id="taxCredit">-$4500</span>
                             </div>
-
                             <div class="row bold">
                                 <span>New Cost</span>
                                 <span id="newCost">$10500</span>
                             </div>
+                            <div class="secondary-card">
+                                <p class="title-monthly-payment">Monthly Payment</p>
+                                <h3 class="monthly">$<span id="monthly">0</span></h3>
+                                <small class="sub-small">(loan based on 6.5% APR)</small>
+                            </div>
                         </div>
-
-                        <div class="primary-card">
-                            <p>Monthly Payment</p>
-                            <h3>$<span id="monthly">0</span></h3>
-                            <small>(loan based on 6.5% APR)</small>
-                        </div>
-
                     </div>
                 </div>
             </section>
