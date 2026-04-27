@@ -220,6 +220,7 @@ body.dark{
 .hero-container{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .accent-title{
@@ -247,6 +248,10 @@ body.dark{
 .hero__buttons{
     display: flex;
     gap: 12px;
+}
+
+.left-side {
+    max-width: 488px;
 }
 
 .right-side{
@@ -302,6 +307,54 @@ body.dark{
     gap: 12px;
     align-items: center;
 }
+
+
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .right-side {
+        order: 2;
+    }
+
+    .left-side {
+        order: 1;
+    }
+
+    .hero__image {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .accent-title {
+        font-size: 40px;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero__list-features {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .list-features-item {
+        font-size: 18px;
+    }
+}
+
+
+
+
 
 /* --- HERO END --- */
 
@@ -718,7 +771,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 14px;
     font-family: var(--font-source-sans-3);
     font-weight: 600;
-    color: var(--primary-color);
+    color: #161616;
 }
 
 /* --- WHY GO SOLAR SECTION END --- */
@@ -902,4 +955,301 @@ input[type="range"]::-moz-range-thumb {
         order: 2;
     }
 }
+
+/* --- SOLAR CHECKLIST END --- */
+
+
+
+/* ---HOW IT WORKS SECTION --- */
+.how-it-works{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* --- STEPS CONTAINER --- */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 60px;
+}
+
+/* --- STEP CARD --- */
+
+.step {
+    position: relative;
+    padding: 24px;
+    border-radius: 16px;
+    /* background: var(--bg-card); */
+    border: var(--step-border);
+    transition: all 0.3s ease;
+}
+
+/* hover (необязательно, но красиво) */
+.step:hover {
+    /* transform: translateY(-4px);
+    box-shadow: var(--shadow); */
+}
+
+/* активная карточка */
+
+.step--active {
+    border: 1px solid var(--color-accent);
+    opacity: 0.8;
+}
+
+/* --- NUMBER CIRCLE --- */
+
+.step__num {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-accent);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* --- TITLE --- */
+
+.step h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+/* --- TEXT --- */
+
+.step p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--primary-color);
+}
+
+/* --- ARROWS BETWEEN STEPS --- */
+
+.step:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    top: 12%;
+    right: -19px;
+    /* transform: translateY(-50%); */
+    color: var(--text-80);
+}
+
+/* --- BUTTON BELOW --- */
+
+.steps + .primary-btn {
+    display: block;
+    margin: 24px auto 0;
+}
+
+/* --- TABLET --- */
+
+@media (max-width: 900px) {
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* убираем стрелки */
+    .step:nth-child(2)::after,
+    .step:nth-child(2)::before{
+        display: none;
+    }
+}
+
+/* --- MOBILE --- */
+
+@media (max-width: 600px) {
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .step:nth-child(2)::after,
+    .step:nth-child(2)::before{
+        display: block;
+    }
+
+   .step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: auto;
+        right: 96%;
+        bottom: -20px; /* 👈 под карточкой */
+        transform: translateX(50%) rotate(90deg);
+    }
+}
+
+
+/* --- HOW IT WORKS SECTION END --- */
+
+
+/* ---  TAX CREDIT SECTION --- */
+
+/* --- SECTION --- */
+
+.tax-credit {
+    padding: 120px 0;
+}
+
+/* --- LAYOUT --- */
+
+.tax-credit__container {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+/* --- LEFT --- */
+
+.tax-credit__left {
+    flex: 1;
+    text-align: center;
+}
+
+.tax-credit__percent {
+    font-size: 160px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.tax-credit__percent span:last-child {
+    color: var(--primary-color);
+}
+
+.tax-credit__percent .accent {
+    color: var(--color-accent);
+}
+
+.tax-credit__note {
+    margin-top: 16px;
+    color: var(--primary-color);
+    font-family: var(--font-source-sans-3);
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* --- RIGHT --- */
+
+.tax-credit__right {
+    flex: 1;
+}
+
+.tax-credit__tag {
+    display: inline-block;
+    background: var(--tag);
+    font-family: var(--font-source-sans-3);
+    font-size: 14px;
+    color: #161616;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+/* --- LIST --- */
+
+.tax-credit__list {
+    margin: 24px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tax-credit__list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: var(--primary-color);
+    font-family: var(--font-source-sans-3);
+    font-size: 24px;
+}
+
+/* точка */
+
+.tax-credit__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+}
+
+/* --- BUTTONS --- */
+
+.tax-credit__buttons {
+    display: flex;
+    align-items: center;
+    gap: 46px;
+    margin-top: 24px;
+}
+
+.link-btn {
+    color: var(--link);
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* --- FOOTNOTE --- */
+
+.tax-credit__footnote {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-80);
+}
+
+
+
+/* планшет */
+
+@media (max-width: 900px) {
+    .tax-credit__container {
+        flex-direction: column;
+        text-align: left;
+        gap: 40px;
+    }
+
+    .tax-credit__left {
+        display: none;
+    }
+
+    .tax-credit__buttons{
+        /* gap: 100px; */
+        /* justify-content: space-between; */
+    }
+
+    .tax-credit__footnote{
+        text-align: center;
+    }
+
+    .tax-credit__tag{
+        background: transparent;
+        color: var(--color-accent);
+        font-size: 18px;
+        padding: 0;
+        margin-bottom: 60px;
+    }
+
+}
+
+/* мобилка */
+
+@media (max-width: 600px) {
+
+    .tax-credit__buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* ---  TAX CREDIT SECTION END --- */
 
