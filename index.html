@@ -116,11 +116,11 @@
                             <!-- BILL -->
                             <div class="field">
                                 <div class="field-top">
-                                    <label>Monthly Electricity Bill</label>
+                                    <label for="billRange">Monthly Electricity Bill</label>
                                     <div>$<span id="billValue">120</span></div>
                                 </div>
 
-                                <input type="range" id="billRange" min="50" max="400" value="120">
+                                <input id="billRange" name="billRange" type="range" min="50" max="400" value="120">
 
                                 <div class="presets">
                                     <button data-value="75">$75</button>
@@ -133,11 +133,11 @@
                             <!-- SYSTEM SIZE -->
                             <div class="field">
                                 <div class="field-top">
-                                    <label>System Size:</label>
+                                    <label for="kwRange">System Size:</label>
                                     <div><span id="kwValue">6</span> KW</div>
                                 </div>
 
-                                <input type="range" id="kwRange" min="3" max="12" value="6">
+                                <input type="range" id="kwRange" name="kwRange" min="3" max="12" value="6">
 
                                 <div class="range-labels">
                                     <span>3 kW (Small)</span>
@@ -148,11 +148,11 @@
                             <!-- LOAN TERM -->
                             <div class="field">
                                 <div class="field-top">
-                                    <label>Loan Term:</label>
+                                    <label for="yearsRange">Loan Term:</label>
                                     <div><span id="yearsValue">20</span> Years</div>
                                 </div>
 
-                                <input type="range" id="yearsRange" min="5" max="25" value="20">
+                                <input type="range" id="yearsRange" name="yearsRange" min="5" max="25" value="20">
 
                                 <div class="range-labels">
                                     <span>5 Years</span>
@@ -399,19 +399,24 @@
                         </ul>
 
                         <div class="tax-credit__buttons">
-                            <button class="primary-btn">Start Saving Today</button>
+                            <button class="primary-btn">
+                                Start Saving Today
+                                <svg>
+                                    <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                </svg>
+                            </button>
                             <a href="#" class="link-btn">
                                 Official IRS Guide 
                                 <svg>
                                     <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
-                                </svg></a>
+                                </svg>
+                            </a>
                         </div>
 
                         <p class="tax-credit__footnote">
                             Rate drops to 26% in 2033 and 22% in 2034. Act before the deadline.
                         </p>
                     </div>
-
                 </div>
             </section>
 
@@ -484,6 +489,113 @@
                 </div>
             </section>
 
+
+            <section class="contact-form">
+                <div class="container">
+
+                    <div class="section__header">
+                        <p class="mini-header">Get a free quote</p>
+                        <h2 class="caption-h2">Secure Your Energy Independence</h2>
+                        <p class="subtitle">
+                            Stop relying on the grid. Leave a request for a custom solar solution tailored to your home’s needs.
+                        </p>
+                    </div>
+
+                    <div class="contact-form__container">
+
+                        <!-- LEFT -->
+                        <ul class="contact-form__list">
+                            <li class="contact-form__item">
+                                <span class="icon">    
+                                    <svg>
+                                        <use href="./assets/images/symbol-defs.svg#icon-star"></use>
+                                    </svg>
+                            </span>
+                                <div>
+                                    <p class="title">Free consultation</p>
+                                    <p class="text">No obligation, no pressure</p>
+                                </div>
+                            </li>
+
+                            <li class="contact-form__item">
+                                <span class="icon">
+                                    <svg>
+                                        <use href="./assets/images/symbol-defs.svg#icon-thumb-up"></use>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="title">Custom savings estimate</p>
+                                    <p class="text">Based on your home and usage</p>
+                                </div>
+                            </li>
+
+                            <li class="contact-form__item">
+                                <span class="icon">
+                                    <svg>
+                                        <use href="./assets/images/symbol-defs.svg#icon-clock"></use>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="title">Response within 24 hours</p>
+                                    <p class="text">Our team gets back to you fast</p>
+                                </div>
+                            </li>
+
+                            <li class="contact-form__item">
+                                <span class="icon">
+                                    <svg>
+                                        <use href="./assets/images/symbol-defs.svg#icon-location"></use>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="title">5,000+ homes served</p>
+                                    <p class="text">Across the United States</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- RIGHT FORM -->
+                        <form class="form">
+                            <div class="form-row">
+                                <label for="firstName">First name
+                                    <input id="firstName" name="firstName" type="text" placeholder="John">
+                                </label>
+                                <label for="lastName">Last name
+                                    <input id="lastName" name="lastName" type="text" placeholder="Smith">
+                                </label>
+                            </div>
+
+                            <label for="userEmail">E-mail
+                                <input id="userEmail" name="userEmail" type="email" placeholder="john@example.com">
+                            </label>
+                            <label for="userPhone">Phone
+                                <input id="userPhone" name="userPhone" type="tel" placeholder="+1 (555) 000-0000">
+                            </label>
+
+                            <label for="userBill" class="user-bill-select">Monthly electricity bill
+                                <select id="userBill" name="userBill">
+                                    <option>$100 - $200</option>
+                                    <option>$200 - $300</option>
+                                    <option>$300 - $400</option>
+                                </select>
+                            </label>
+                            
+                            <label for="tick" class="checkbox">
+                                <input id="tick" name="tick" type="checkbox">
+                                <span class="checkbox__box"></span>
+                                I agree to the processing of personal data
+                            </label>
+
+                            <button class="primary-btn full">Get My Free Quote 
+                                <svg>
+                                    <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                </svg>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </section>
 
 
 
