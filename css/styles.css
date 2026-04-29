@@ -1034,12 +1034,18 @@ input[type="range"]::-moz-range-thumb {
 /* --- ARROWS BETWEEN STEPS --- */
 
 .step:not(:last-child)::after {
-    content: "→";
+    content: "";
     position: absolute;
-    top: 12%;
-    right: -19px;
-    /* transform: translateY(-50%); */
-    color: var(--text-80);
+    top: 25px;
+    right: -18px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background-color: var(--text-80);
+    -webkit-mask: url("../assets/images/arrow.svg") no-repeat center;
+    mask: url("../assets/images/arrow.svg") no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
 }
 
 /* --- BUTTON BELOW --- */
@@ -1197,6 +1203,15 @@ input[type="range"]::-moz-range-thumb {
     text-decoration: underline;
     font-weight: 600;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.link-btn svg{
+    fill: var(--link);
+    width: 22px;
+    /* height: 2px; */
 }
 
 /* --- FOOTNOTE --- */
@@ -1253,3 +1268,132 @@ input[type="range"]::-moz-range-thumb {
 
 /* ---  TAX CREDIT SECTION END --- */
 
+
+
+
+
+
+
+/* --- CUSTOMER EXPERIENCE SECTION --- */
+
+.customer-experience {
+    padding: 120px 0;
+}
+.section-header {
+    position: relative;
+}
+
+.header-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 22px;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow.prev svg,
+.arrow.next svg{
+    height: 32px;
+    fill: var(--primary-color)
+}
+
+.arrow.prev svg{
+    transform: rotate(180deg);
+}
+
+.slider {
+    overflow: hidden;
+    margin-top: 60px;
+    position: relative;
+
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img{
+    border-radius: 24px;
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px 30px;
+
+    color: #FAF9F5;
+    font-size: 32px;
+    font-weight: 600;
+    background: #16161699;
+    border-radius: 0 0 24px 24px;
+    backdrop-filter: blur(15px);
+}
+
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.dot {
+    width: 21px;
+    height: 21px;
+    background: var(--primary-color);
+    opacity: 0.4;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* активная */
+.dot.active {
+    width: 60px;
+    border-radius: 10px;
+    background: var(--primary-color);
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .slide-overlay {
+        flex-direction: column;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .slider-controls {
+        position: static;
+        margin-top: 16px;
+    }
+}
+
+
+/* --- CUSTOMER EXPERIENCE SECTION END--- */

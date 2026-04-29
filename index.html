@@ -51,36 +51,38 @@
 
         <main>
             <section class="hero" id="hero">
-                <div class="container hero-container">
-                    <div class="left-side">
-                        <h1 class="caption-h1">
-                            Stop Renting <br>Your Power. <br> <span class="accent accent-title">Own It.</span>
-                        </h1>
-                        <p class="hero__text"><span>Save up to 70%</span> on your monthly electric bills and protect your home from rising utility rates with custom solar solutions.</p>
-                        <div class="hero__buttons">
-                            <button type="button" class="primary-btn">
-                                Get my free quote 
-                                <svg>
-                                    <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
-                                </svg>
-                            </button>
-                            <button type="button" class="secondary-btn">
-                                Learn more
-                            </button>
+                <div class="container">
+                    <div class="hero-container">
+                        <div class="left-side">
+                            <h1 class="caption-h1">
+                                Stop Renting <br>Your Power. <br> <span class="accent accent-title">Own It.</span>
+                            </h1>
+                            <p class="hero__text"><span>Save up to 70%</span> on your monthly electric bills and protect your home from rising utility rates with custom solar solutions.</p>
+                            <div class="hero__buttons">
+                                <button type="button" class="primary-btn">
+                                    Get my free quote 
+                                    <svg>
+                                        <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                    </svg>
+                                </button>
+                                <button type="button" class="secondary-btn">
+                                    Learn more
+                                </button>
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <div class="hero__image">
+                                <img src="./assets/images/house.png" alt="House with solar panels on the roof">
+                            </div>    
                         </div>
                     </div>
-                    <div class="right-side">
-                        <div class="hero__image">
-                            <img src="./assets/images/house.png" alt="House with solar panels on the roof">
-                        </div>    
-                    </div>
+                    <ul class="hero__list-features">
+                        <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-key"></use></svg>Licensed & Insured</li>
+                        <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-shield-tick"></use></svg>BBB Accredited</li>
+                        <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-medal"></use></svg>5,000+ Homes Served</li>
+                        <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-like"></use></svg>Vetted Installers</li>
+                    </ul>
                 </div>
-                <ul class="hero__list-features">
-                    <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-key"></use></svg>Licensed & Insured</li>
-                    <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-shield-tick"></use></svg>BBB Accredited</li>
-                    <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-medal"></use></svg>5,000+ Homes Served</li>
-                    <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-like"></use></svg>Vetted Installers</li>
-                </ul>
                 
             </section>
 
@@ -398,7 +400,11 @@
 
                         <div class="tax-credit__buttons">
                             <button class="primary-btn">Start Saving Today</button>
-                            <a href="#" class="link-btn">Official IRS Guide →</a>
+                            <a href="#" class="link-btn">
+                                Official IRS Guide 
+                                <svg>
+                                    <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                </svg></a>
                         </div>
 
                         <p class="tax-credit__footnote">
@@ -408,6 +414,78 @@
 
                 </div>
             </section>
+
+
+            <section class="customer-experience">
+                <div class="container">
+                    <div class="header-controls">
+                        <div class="section-header">
+                            <p class="mini-header">Customer experience</p>
+                            <h2 class="caption-h2">Real Homes. Real Savings.</h2>
+                            <p class="subtitle">
+                                Examples from real homeowners. Results vary by home and location.
+                            </p>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="arrow prev">
+                                <svg>
+                                    <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="arrow next">
+                                <svg>
+                                    <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+
+                    <!-- SLIDER -->
+                    <div class="slider">
+
+                        <ul class="slider-track">
+                            
+                            <li class="slide">
+                                <img src="./assets/images/testimonials-01.jpg">
+                                <div class="slide-overlay">
+                                    <span>Single-family home — Texas</span>
+                                    <span>Monthly Saving: <span class="accent">$145</span></span>
+                                </div>
+                            </li>
+
+                            <li class="slide">
+                                <img src="./assets/images/testimonials-01.jpg">
+                                <div class="slide-overlay">
+                                    <span>Single-family home — California</span>
+                                    <span>Monthly Saving: <span class="accent">$180</span></span>
+                                </div>
+                            </li>
+
+                            <li class="slide">
+                                <img src="./assets/images/testimonials-01.jpg">
+                                <div class="slide-overlay">
+                                    <span>Single-family home — Florida</span>
+                                    <span>Monthly Saving: <span class="accent">$120</span></span>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- DOTS -->
+                    <div class="slider-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+
+                </div>
+            </section>
+
+
+
 
         </main>
         

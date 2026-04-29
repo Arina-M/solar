@@ -164,3 +164,92 @@ items.forEach(item => {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+//КАРУСЕЛЬ
+const track = document.querySelector(".slider-track");
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+const slider = document.querySelector(".slider");
+
+let index = 0;
+
+// таймеры
+let autoplayInterval;
+let restartTimeout;
+
+// --- ОСНОВНАЯ ФУНКЦИЯ ---
+
+function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+}
+
+// --- АВТОПРОКРУТКА ---
+
+function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+        index = (index + 1) % slides.length;
+        updateSlider();
+    }, 4000); // каждые 4 сек
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+// --- ПАУЗА ПОСЛЕ КЛИКА ---
+
+function pauseAutoplay() {
+    stopAutoplay();
+
+    clearTimeout(restartTimeout);
+
+    restartTimeout = setTimeout(() => {
+        startAutoplay();
+    }, 10000); // 10 секунд паузы
+}
+
+// --- СТРЕЛКИ ---
+
+document.querySelector(".next").onclick = () => {
+    index = (index + 1) % slides.length;
+    updateSlider();
+    pauseAutoplay();
+};
+
+document.querySelector(".prev").onclick = () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+    pauseAutoplay();
+};
+
+// --- ТОЧКИ ---
+
+dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+        index = +dot.dataset.index;
+        updateSlider();
+        pauseAutoplay();
+    });
+});
+
+
+// --- НАВЕДЕНИЕ ---
+
+slider.addEventListener("mouseenter", stopAutoplay);
+slider.addEventListener("mouseleave", startAutoplay);
+
+// --- СТАРТ ---
+
+updateSlider();
+startAutoplay();
