@@ -51,6 +51,22 @@ if (themeToggle) {
     });
 }
 
+
+//primary button mouse moving
+document.querySelectorAll(".primary-btn").forEach(button => {
+    button.addEventListener("mousemove", event => {
+        const rect = button.getBoundingClientRect();
+
+        button.style.setProperty("--btn-x", `${event.clientX - rect.left}px`);
+        button.style.setProperty("--btn-y", `${event.clientY - rect.top}px`);
+    });
+
+    button.addEventListener("mouseleave", () => {
+        button.style.removeProperty("--btn-x");
+        button.style.removeProperty("--btn-y");
+    });
+});
+
 // --- STATE ---
 
 let state = {
