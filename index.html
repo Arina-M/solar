@@ -24,13 +24,15 @@
 
         <header>
             <div class=" container header-container">
-                <img src="./assets/images/logo.svg" alt="logo" class="header__logo"> 
+                <a href="./index.html">
+                    <img src="./assets/images/logo.svg" alt="logo" class="header__logo"> 
+                </a>
                 <nav aria-label="Main navigation">
                     <ul class="header__list-menu">
-                        <li class="list-menu-item"><a href="#" class="list-menu-link">How It Works</a></li>
-                        <li class="list-menu-item"><a href="#" class="list-menu-link">Savings calculator</a></li>
-                        <li class="list-menu-item"><a href="#" class="list-menu-link">Why solar</a></li>
-                        <li class="list-menu-item"><a href="#" class="list-menu-link">FAQs</a></li>
+                        <li class="list-menu-item"><a href="#how-it-works" class="list-menu-link">How It Works</a></li>
+                        <li class="list-menu-item"><a href="#calculator" class="list-menu-link">Savings calculator</a></li>
+                        <li class="list-menu-item"><a href="#why-go-solar" class="list-menu-link">Why solar</a></li>
+                        <li class="list-menu-item"><a href="#faq" class="list-menu-link">FAQs</a></li>
                     </ul> 
                 </nav>
                 <div class="header__buttons">
@@ -50,6 +52,7 @@
         </header>
 
         <main>
+            <!-- HERO SECTION START -->
             <section class="hero" id="hero">
                 <div class="container">
                     <div class="hero-container">
@@ -83,24 +86,11 @@
                         <li class="list-features-item"><svg><use href="./assets/images/symbol-defs.svg#icon-like"></use></svg>Vetted Installers</li>
                     </ul>
                 </div>
-                
             </section>
+            <!-- HERO SECTION END -->
 
-            <!-- <section class=" container calculator" id="calculator">
-                <div class="calculator_header">
-                    <p class="mini-header">Savings calculator</p>
-                    <h2 class="caption-h2">Calculate your solar panel savings</h2>
-                    <p class="subtitle">Adjust the parameters to see your estimated return on investment.</p>
-                </div>
-                <div class="calculator-body">
-                    <div class="left-panel">
-                        <label>Monthly electricity bill</label>
-                        <input type="range">
-                    </div>
-                    <div class="right-panel"></div>
-                </div>
-            </section> -->
-
+        
+            <!-- CALCULATOR SECTION START -->
             <section class="calculator" id="calculator">
                 <div class="container">
                     <div class="section__header">
@@ -109,19 +99,14 @@
                         <p class="subtitle">Adjust the parameters to see your estimated return on investment.</p>
                     </div>
                     <div class="calculator-body">
-
-                        <!-- LEFT PANEL -->
                         <div class="left-panel primary-card">
-
-                            <!-- BILL -->
+                            <!-- Monthly Electricity Bill -->
                             <div class="field">
                                 <div class="field-top">
                                     <label for="billRange">Monthly Electricity Bill</label>
                                     <div>$<span id="billValue">120</span></div>
                                 </div>
-
                                 <input id="billRange" name="billRange" type="range" min="50" max="400" value="120">
-
                                 <div class="presets">
                                     <button data-value="75">$75</button>
                                     <button data-value="120" class="active">$120</button>
@@ -136,9 +121,7 @@
                                     <label for="kwRange">System Size:</label>
                                     <div><span id="kwValue">6</span> KW</div>
                                 </div>
-
                                 <input type="range" id="kwRange" name="kwRange" min="3" max="12" value="6">
-
                                 <div class="range-labels">
                                     <span>3 kW (Small)</span>
                                     <span>12 kW (Large)</span>
@@ -151,9 +134,7 @@
                                     <label for="yearsRange">Loan Term:</label>
                                     <div><span id="yearsValue">20</span> Years</div>
                                 </div>
-
                                 <input type="range" id="yearsRange" name="yearsRange" min="5" max="25" value="20">
-
                                 <div class="range-labels">
                                     <span>5 Years</span>
                                     <span>25 Years</span>
@@ -163,9 +144,8 @@
                             <button class="primary-btn full">Get Personalized Quote</button>
                         </div>
 
-                        <!-- RIGHT PANEL -->
+                        
                         <div class="right-panel">
-
                             <div class="secondary-card result-big">
                                 <p>25-Year Savings</p>
                                 <h3>$<span id="total">0</span></h3>
@@ -212,10 +192,14 @@
                             </div>
                         </div>
                     </div>
+
                     <p class="disclaimer">Disclaimer: This calculator provides estimates based on average assumptions. Actual savings may vary based on your location, roof orientation, shading, local electricity rates, and system efficiency. Contact us for a detailed analysis of your property.</p>
                 </div>                
             </section>
+            <!-- CALCULATOR SECTION END -->
 
+
+            <!-- WHY GO SOLAR SECTION START -->
             <section class="why-go-solar" id="why-go-solar">
                 <div class="container">
                     <div class="section__header">
@@ -272,7 +256,10 @@
                     </ul>
                 </div>
             </section>
+            <!-- WHY GO SOLAR SECTION END -->
 
+
+            <!-- SOLAR CHECKLIST SECTION START -->
             <section class="solar-checklist">
                 <div class="container">
                     <div class="section__header">
@@ -331,9 +318,11 @@
                         </div>
                     </div>
                 </div>
-                
             </section>
+            <!-- SOLAR CHECKLIST SECTION END -->
 
+
+            <!-- HOW IT WORKS SECTION START -->
             <section class="how-it-works" id="how-it-works">
                 <div class="container">
                     <div class="section__header">
@@ -366,14 +355,12 @@
                     <button type="button" class="primary-btn">Get Started</button>   
                 </div>
             </section>
+            <!-- HOW IT WORKS SECTION END -->
 
 
-
-
+            <!-- TAX CREDIT SECTION START -->
             <section class="tax-credit" id="tax-credit">
                 <div class="container tax-credit__container">
-
-                    <!-- LEFT -->
                     <div class="tax-credit__left">
                         <div class="tax-credit__percent">
                             <span class="accent">30</span><span>%</span>
@@ -382,8 +369,6 @@
                             of your total <br> installation cost <br> back from the government
                         </p>
                     </div>
-
-                    <!-- RIGHT -->
                     <div class="tax-credit__right">
                         <p class="tax-credit__tag">Federal tax credit · ITC</p>
 
@@ -419,8 +404,11 @@
                     </div>
                 </div>
             </section>
+            <!-- TAXE CREDIT SECTION END -->
 
+            
 
+            <!-- CUSTOMER EXPERIENCE SECTION START -->
             <section class="customer-experience">
                 <div class="container">
                     <div class="header-controls">
@@ -445,12 +433,9 @@
                         </div>
                     </div>
                     
-
                     <!-- SLIDER -->
                     <div class="slider">
-
                         <ul class="slider-track">
-                            
                             <li class="slide">
                                 <img src="./assets/images/testimonials-01.jpg">
                                 <div class="slide-overlay">
@@ -458,7 +443,6 @@
                                     <span>Monthly Saving: <span class="accent">$145</span></span>
                                 </div>
                             </li>
-
                             <li class="slide">
                                 <img src="./assets/images/testimonials-01.jpg">
                                 <div class="slide-overlay">
@@ -466,7 +450,6 @@
                                     <span>Monthly Saving: <span class="accent">$180</span></span>
                                 </div>
                             </li>
-
                             <li class="slide">
                                 <img src="./assets/images/testimonials-01.jpg">
                                 <div class="slide-overlay">
@@ -474,9 +457,7 @@
                                     <span>Monthly Saving: <span class="accent">$120</span></span>
                                 </div>
                             </li>
-
                         </ul>
-
                     </div>
 
                     <!-- DOTS -->
@@ -485,14 +466,14 @@
                         <span class="dot" data-index="1"></span>
                         <span class="dot" data-index="2"></span>
                     </div>
-
                 </div>
             </section>
+            <!-- CUSTOMER EXPERIENCE SECTION END -->
 
 
+            <!-- CONTACT FORM SECTION START -->
             <section class="contact-form">
                 <div class="container">
-
                     <div class="section__header">
                         <p class="mini-header">Get a free quote</p>
                         <h2 class="caption-h2">Secure Your Energy Independence</h2>
@@ -500,10 +481,7 @@
                             Stop relying on the grid. Leave a request for a custom solar solution tailored to your home’s needs.
                         </p>
                     </div>
-
                     <div class="contact-form__container">
-
-                        <!-- LEFT -->
                         <ul class="contact-form__list">
                             <li class="contact-form__item">
                                 <span class="icon">    
@@ -516,7 +494,6 @@
                                     <p class="text">No obligation, no pressure</p>
                                 </div>
                             </li>
-
                             <li class="contact-form__item">
                                 <span class="icon">
                                     <svg>
@@ -528,7 +505,6 @@
                                     <p class="text">Based on your home and usage</p>
                                 </div>
                             </li>
-
                             <li class="contact-form__item">
                                 <span class="icon">
                                     <svg>
@@ -540,7 +516,6 @@
                                     <p class="text">Our team gets back to you fast</p>
                                 </div>
                             </li>
-
                             <li class="contact-form__item">
                                 <span class="icon">
                                     <svg>
@@ -554,7 +529,6 @@
                             </li>
                         </ul>
 
-                        <!-- RIGHT FORM -->
                         <form class="form">
                             <div class="form-row">
                                 <label for="firstName">First name
@@ -564,14 +538,12 @@
                                     <input id="lastName" name="lastName" type="text" placeholder="Smith">
                                 </label>
                             </div>
-
                             <label for="userEmail">E-mail
                                 <input id="userEmail" name="userEmail" type="email" placeholder="john@example.com">
                             </label>
                             <label for="userPhone">Phone
                                 <input id="userPhone" name="userPhone" type="tel" placeholder="+1 (555) 000-0000">
                             </label>
-
                             <label for="userBill" class="user-bill-select">Monthly electricity bill
                                 <select id="userBill" name="userBill">
                                     <option>$100 - $200</option>
@@ -579,30 +551,161 @@
                                     <option>$300 - $400</option>
                                 </select>
                             </label>
-                            
                             <label for="tick" class="checkbox">
                                 <input id="tick" name="tick" type="checkbox">
                                 <span class="checkbox__box"></span>
                                 I agree to the processing of personal data
                             </label>
-
                             <button class="primary-btn full">Get My Free Quote 
                                 <svg>
                                     <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
                                 </svg>
                             </button>
                         </form>
-
                     </div>
                 </div>
             </section>
+            <!-- CONTACT FORM SECTION END -->
 
 
+            <!-- FAQ SECTION START -->
+            <section class="faq" id="faq">
+                <div class="container">
+                    <div class="section-header center">
+                        <p class="mini-header">FAQ</p>
+                        <h2 class="caption-h2">Frequently Asked Questions</h2>
+                        <p class="subtitle">
+                            Everything you need to know before going solar.
+                        </p>
+                    </div>
+                    <div class="faq__list">
+                        <!-- ACTIVE -->
+                        <div class="faq-item active">
+                            <button class="faq-header">
+                                <span>How much money can I save with solar?</span>
+                                <span class="faq-icon"></span>
+                            </button>
+                            <div class="faq-content">
+                                <p>
+                                    A simple rule: multiply your monthly electricity bill by 0.4 to get your estimated monthly savings. A $300 bill → ~$120/month saved, or $1,440 per year.
+                                </p>
+                                <p>
+                                    Your actual savings depend on:
+                                </p>
+                                <ul>
+                                    <li>Your electricity usage profile</li>
+                                    <li>System size and local grid export rules</li>
+                                    <li>Feed-in tariffs</li>
+                                    <li>Your location</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>How much does installing a solar system cost?</span>
+                                <span class="faq-icon"></span>
+                            </button>
+                            <div class="faq-content">
+                                <p>
+                                    A simple rule: multiply your monthly electricity bill by 0.4 to get your estimated monthly savings...
+                                </p>
+
+                                <ul>
+                                    <li>Your electricity usage profile</li>
+                                    <li>System size and local grid export rules</li>
+                                    <li>Feed-in tariffs</li>
+                                    <li>Your location</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Are your solar systems covered by warranty?</span>
+                                <span class="faq-icon"></span>
+                            </button>
+                            <div class="faq-content">
+                                <p>
+                                    A simple rule: multiply your monthly electricity bill by 0.4 to get your estimated monthly savings...
+                                </p>
+
+                                <ul>
+                                    <li>Your electricity usage profile</li>
+                                    <li>System size and local grid export rules</li>
+                                    <li>Feed-in tariffs</li>
+                                    <li>Your location</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>I was told that rebates are ending soon. Is this true?</span>
+                                <span class="faq-icon"></span>
+                            </button>
+                            <div class="faq-content">
+                                <p>
+                                    A simple rule: multiply your monthly electricity bill by 0.4 to get your estimated monthly savings...
+                                </p>
+                                <ul>
+                                    <li>Your electricity usage profile</li>
+                                    <li>System size and local grid export rules</li>
+                                    <li>Feed-in tariffs</li>
+                                    <li>Your location</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- FAQ SECTION END -->
 
         </main>
         
-        <footer></footer>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-info">
+                        <a href="#" class="footer-logo">
+                            <img src="./assets/images/logo.svg" alt="footer logo">
+                            <!-- <span>Solar</span> -->
+                        </a>
+                        <p class="footer-text">
+                            Solar power goes beyond eco-consciousness — it’s about true energy independence.
+                            We empower you to cut utility costs using the planet’s cleanest, inexhaustible resource.
+                        </p>
+                        <a href="tel:+3053486434649" class="footer-phone">
+                            +305-34864-34649
+                        </a>
+                    </div>
 
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Product</h4>
+                            <a href="#">How it Works</a>
+                            <a href="#">Savings calculator</a>
+                            <a href="#">Why solar</a>
+                            <a href="#">FAQ</a>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Legal</h4>
+                            <a href="#">Privacy policy</a>
+                            <a href="#">Terms of use</a>
+                            <a href="#">Cookie policy</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copy">
+                        © Created by Netio 2026
+                    </p>
+                    <div class="footer-badges">
+                        <span>Licensed & insured</span>
+                        <span>BBB Accredited</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </body>
 </html>

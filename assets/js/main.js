@@ -20,6 +20,36 @@ const systemCostEl = document.getElementById("systemCost");
 const taxCreditEl = document.getElementById("taxCredit");
 const newCostEl = document.getElementById("newCost");
 const monthlyEl = document.getElementById("monthly");
+const themeToggle = document.getElementById("theme-toggle");
+const themeToggleIcon = themeToggle?.querySelector("use");
+
+//toggle theme
+if (themeToggle) {
+    const setThemeIcon = isDark => {
+        themeToggleIcon?.setAttribute(
+            "href",
+            `./assets/images/symbol-defs.svg#icon-${isDark ? "moon" : "sun"}`
+        );
+    };
+
+    const savedTheme = localStorage.getItem("theme");
+    const isDarkTheme = savedTheme === "dark";
+
+    if (isDarkTheme) {
+        document.body.classList.add("dark");
+    }
+
+    themeToggle.setAttribute("aria-pressed", String(isDarkTheme));
+    setThemeIcon(isDarkTheme);
+
+    themeToggle.addEventListener("click", () => {
+        const isDark = document.body.classList.toggle("dark");
+
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        setThemeIcon(isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+}
 
 // --- STATE ---
 
@@ -45,7 +75,7 @@ function setProgress(range) {
     range.style.setProperty("--progress", percent + "%");
 }
 
-// --- UI UPDATE (БЕЗ РАСЧЁТОВ) ---
+// --- UI UPDATE ---
 
 function updateUI() {
     billValue.textContent = state.bill;
@@ -69,7 +99,7 @@ function updateUI() {
     setProgress(yearsRange);
 }
 
-// --- CALCULATE (КАК В МАКЕТЕ) ---
+// --- CALCULATE ---
 
 function calculate() {
     const systemCost = state.kw * 2500;
@@ -78,7 +108,6 @@ function calculate() {
 
     const annualSavings = state.bill * 12 * 0.85;
 
-    // 👇 магический коэффициент из макета
     const totalSavings = annualSavings * 25.5;
 
     const payback = Math.floor(newCost / annualSavings);
@@ -128,7 +157,6 @@ buttons.forEach(btn => {
     });
 });
 
-// расчет только по кнопке
 calculateBtn.addEventListener("click", () => {
     calculate();
 });
@@ -136,19 +164,14 @@ calculateBtn.addEventListener("click", () => {
 // --- INIT ---
 
 updateUI();
-calculate(); // стартовые значения как в макете
+calculate(); 
 
 
 
 
 
 
-
-
-
-
-
-//аккордеон почему солар
+//accordion Why Solar
 const items = document.querySelectorAll(".accordion-item");
 
 items.forEach(item => {
@@ -169,11 +192,7 @@ items.forEach(item => {
 
 
 
-
-
-
-
-//КАРУСЕЛЬ
+//testimmonials
 const track = document.querySelector(".slider-track");
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -181,11 +200,9 @@ const slider = document.querySelector(".slider");
 
 let index = 0;
 
-// таймеры
+// timer
 let autoplayInterval;
 let restartTimeout;
-
-// --- ОСНОВНАЯ ФУНКЦИЯ ---
 
 function updateSlider() {
     track.style.transform = `translateX(-${index * 100}%)`;
@@ -193,8 +210,6 @@ function updateSlider() {
     dots.forEach(dot => dot.classList.remove("active"));
     dots[index].classList.add("active");
 }
-
-// --- АВТОПРОКРУТКА ---
 
 function startAutoplay() {
     autoplayInterval = setInterval(() => {
@@ -207,8 +222,6 @@ function stopAutoplay() {
     clearInterval(autoplayInterval);
 }
 
-// --- ПАУЗА ПОСЛЕ КЛИКА ---
-
 function pauseAutoplay() {
     stopAutoplay();
 
@@ -216,10 +229,10 @@ function pauseAutoplay() {
 
     restartTimeout = setTimeout(() => {
         startAutoplay();
-    }, 10000); // 10 секунд паузы
+    }, 10000); 
 }
 
-// --- СТРЕЛКИ ---
+// --- arrows ---
 
 document.querySelector(".next").onclick = () => {
     index = (index + 1) % slides.length;
@@ -233,8 +246,6 @@ document.querySelector(".prev").onclick = () => {
     pauseAutoplay();
 };
 
-// --- ТОЧКИ ---
-
 dots.forEach(dot => {
     dot.addEventListener("click", () => {
         index = +dot.dataset.index;
@@ -243,13 +254,35 @@ dots.forEach(dot => {
     });
 });
 
-
-// --- НАВЕДЕНИЕ ---
-
 slider.addEventListener("mouseenter", stopAutoplay);
 slider.addEventListener("mouseleave", startAutoplay);
 
-// --- СТАРТ ---
-
 updateSlider();
 startAutoplay();
+
+
+
+
+
+
+
+// FAQ
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+    const header = item.querySelector(".faq-header");
+
+    header.addEventListener("click", () => {
+
+        const isActive = item.classList.contains("active");
+
+        faqItems.forEach(i => {
+            i.classList.remove("active");
+        });
+
+        if (!isActive) {
+            item.classList.add("active");
+        }
+    });
+});
