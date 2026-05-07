@@ -71,6 +71,7 @@ ul{
     --circle: #FFFFFF;
     --track: #1616163D;
     --track-border: 1px solid #16161652;
+    --range-thumb-state-shadow: 0 0 0 6px #16161652, 2px 2px 8px 0px #0000001A;
 
 
     /* buttons */
@@ -132,6 +133,7 @@ body.dark{
     --circle: #161616;
     --track: #FFFFFF52;
     --track-border: 1px solid #FFFFFF3D;
+    --range-thumb-state-shadow: 0 0 0 6px #F9F7F266;
 
     --main-img-bg: none;
 
@@ -205,7 +207,7 @@ body.dark{
     --btn-y: 50%;
     --btn-glow-size: 0px;
     background:
-        radial-gradient(circle var(--btn-glow-size) at var(--btn-x) var(--btn-y), var(--button-hover) 0%, rgba(247, 254, 61, 0.8) 28%, rgba(247, 254, 61, 0) 58%),
+        radial-gradient(circle var(--btn-glow-size) at var(--btn-x) var(--btn-y), var(--button-hover) 0%, rgba(247, 254, 61, 0.95) 35%, rgba(247, 254, 61, 0.75) 58%, rgba(247, 254, 61, 0.45) 72%),
         var(--color-accent);
     background-position: center;
     border: none;
@@ -250,13 +252,15 @@ body.dark{
 .primary-btn svg{
     width: 24px;
     height: 24px;
-    fill: var(--primary-text-color-btn);
+    fill: currentColor;
+    transition: fill 0.3s ease;
 }
 
 .secondary-btn svg{
     width: 17px;
     height: 20px;
-    fill: var(--primary-color);
+    fill: currentColor;
+    transition: fill 0.3s ease;
 }
 
 /* ------------------------- MAIN STYLES END ------------------------- */
@@ -368,6 +372,14 @@ body.dark .theme-toggle svg{
 .accent-title{
     font-size: 72px;
     line-height: 1.1;
+    transition: color 0.3s ease;
+}
+
+.accent-title:hover{
+    background: linear-gradient(90deg, #F7FE3D 25.96%, #FCCD20 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .accent{
@@ -587,6 +599,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 /* circle */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
+    box-sizing: border-box;
     width: 26px;
     height: 26px;
     background: var(--circle);
@@ -596,6 +609,12 @@ input[type="range"]::-webkit-slider-thumb {
     border: 1px solid var(--color-accent);
     box-shadow: 0 0 0 1px rgba(252, 205, 32, 0.2),
                 0 0 6px rgba(252, 205, 32, 0.6);
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: var(--range-thumb-state-shadow);
 }
 
 .presets {
