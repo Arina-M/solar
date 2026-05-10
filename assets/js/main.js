@@ -22,6 +22,37 @@ const newCostEl = document.getElementById("newCost");
 const monthlyEl = document.getElementById("monthly");
 const themeToggle = document.getElementById("theme-toggle");
 const themeToggleIcon = themeToggle?.querySelector("use");
+const mainNav = document.getElementById("main-nav");
+const menuOpenButton = document.querySelector(".menu-toggle--open");
+const menuCloseButton = document.querySelector(".menu-toggle--close");
+const menuLinks = mainNav?.querySelectorAll(".list-menu-link");
+
+//burger menu
+if (mainNav && menuOpenButton && menuCloseButton) {
+    const setMenuState = isOpen => {
+        mainNav.classList.toggle("is-open", isOpen);
+        document.body.classList.toggle("menu-open", isOpen);
+        menuOpenButton.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    menuOpenButton.addEventListener("click", () => setMenuState(true));
+    menuCloseButton.addEventListener("click", () => setMenuState(false));
+    menuLinks?.forEach(link => {
+        link.addEventListener("click", () => setMenuState(false));
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            setMenuState(false);
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+            setMenuState(false);
+        }
+    });
+}
 
 //toggle theme
 if (themeToggle) {
