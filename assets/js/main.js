@@ -48,7 +48,7 @@ if (mainNav && menuOpenButton && menuCloseButton) {
     });
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth > 992) {
             setMenuState(false);
         }
     });
