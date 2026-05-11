@@ -20,6 +20,7 @@ const systemCostEl = document.getElementById("systemCost");
 const taxCreditEl = document.getElementById("taxCredit");
 const newCostEl = document.getElementById("newCost");
 const monthlyEl = document.getElementById("monthly");
+const systemKwEl = document.getElementById("systemKw");
 const themeToggle = document.getElementById("theme-toggle");
 const themeToggleIcon = themeToggle?.querySelector("use");
 const mainNav = document.getElementById("main-nav");
@@ -128,6 +129,7 @@ function updateUI() {
     billValue.textContent = state.bill;
     kwValue.textContent = state.kw;
     yearsValue.textContent = state.years;
+    systemKwEl.textContent = state.kw;
 
     billRange.value = state.bill;
     kwRange.value = state.kw;
