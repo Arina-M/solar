@@ -686,6 +686,7 @@ body.dark .theme-toggle svg{
     position: relative;
     overflow: visible;
     z-index: 1;
+    isolation: isolate;
 }
 
 .hero__image::before{
@@ -699,6 +700,8 @@ body.dark .theme-toggle svg{
     background: var(--main-img-bg);
     filter: blur(200px);
     z-index: -1;
+    filter: blur(140px);
+    will-change: transform;
 }
 
 .hero__list-features{
