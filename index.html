@@ -8,6 +8,7 @@
                 integrity="sha512-Y0MM+V6ymRKN2zStTqzQ227DWhhp4Mzdo6gnlRnuaNCbc+YN/ZH0sBCLTM4M0oSy9c9VKiCvd4Jk44aCLrNS5Q=="
                 crossorigin="anonymous"
                 referrerpolicy="no-referrer" />
+        <link rel="icon" href="./assets/images/favicon.png" type="image/png">        
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -283,7 +284,7 @@
                     </div>
                     <div class="solar-checklist__container">
                         <div class="accordion">
-                            <div class="accordion-item active">
+                            <div class="accordion-item active" data-fit="01">
                                 <button class="accordion-header">
                                     <span class="accordion-num">01</span>
                                     <span class="accordion-title">Adequate Sun Exposure</span>
@@ -297,7 +298,7 @@
                                 </div>
                             </div>
 
-                            <div class="accordion-item">
+                            <div class="accordion-item" data-fit="02">
                                 <button class="accordion-header">
                                     <span class="accordion-num">02</span>
                                     <span class="accordion-title">Roof in good condition</span>
@@ -310,7 +311,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="accordion-item">
+                            <div class="accordion-item" data-fit="03">
                                 <button class="accordion-header">
                                     <span class="accordion-num">03</span>
                                     <span class="accordion-title">Moderate to high electricity usage</span>
@@ -326,9 +327,9 @@
                         </div>
                         <div class="solar-checklist__image">
                             <img src="./assets/images/house-solar-checklist.png" alt="Solar house">
-                            <div class="marker marker--1">01</div>
-                            <div class="marker marker--2">02</div>
-                            <div class="marker marker--3">03</div>
+                            <div class="marker marker--1 active" data-fit="01">01</div>
+                            <div class="marker marker--2" data-fit="02">02</div>
+                            <div class="marker marker--3" data-fit="03">03</div>
                         </div>
                     </div>
                 </div>

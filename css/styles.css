@@ -938,6 +938,11 @@ body.dark .theme-toggle svg{
     .list-features-item {
         font-size: 16px;
     }
+
+    .hero__image::before{
+        width: 200px;
+        height: 200px;
+    }
 }
 
 @media (max-width: 447px) {
@@ -1646,9 +1651,9 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 }
 
-.marker:hover{
+/* .marker:hover{
     background: var(--color-accent);
-}
+} */
 
 .marker--1 {
     top: 13%;
@@ -1663,6 +1668,16 @@ input[type="range"]:active::-webkit-slider-thumb {
 .marker--3 {
     bottom: 38%;
     right: 17%;
+}
+
+.marker.active {
+    background: var(--color-accent);
+
+    /* box-shadow:
+        0 0 15px rgba(252, 205, 32, 0.6),
+        0 0 30px rgba(252, 205, 32, 0.3);
+
+    transform: scale(1.08); */
 }
 
 /* Tablet horizontal */
@@ -2176,7 +2191,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .slide img{
     width: 100%;
-    height: 520px;
+    /* height: 520px; */
 
     object-fit: cover;
     object-position: center;

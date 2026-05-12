@@ -335,3 +335,43 @@ faqItems.forEach(item => {
         }
     });
 });
+
+
+
+
+
+//checklist number highlights
+const accordionItems = document.querySelectorAll(".accordion-item");
+const markers = document.querySelectorAll(".marker");
+
+accordionItems.forEach(item => {
+
+    const header = item.querySelector(".accordion-header");
+
+    header.addEventListener("click", () => {
+
+        const fitId = item.dataset.fit;
+
+        // accordion active
+
+        accordionItems.forEach(i => {
+            i.classList.remove("active");
+        });
+
+        item.classList.add("active");
+
+        // marker active
+
+        markers.forEach(marker => {
+
+            marker.classList.remove("active");
+
+            if (marker.dataset.fit === fitId) {
+                marker.classList.add("active");
+            }
+
+        });
+
+    });
+
+});
