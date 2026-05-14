@@ -158,7 +158,9 @@ body.dark{
     --track-border: 1px solid #FFFFFF3D;
     --range-thumb-state-shadow: 0 0 0 6px #F9F7F266;
 
-    --main-img-bg: none;
+    --main-img-bg:radial-gradient(25.83% 25.83% at 50.06% 52.98%, rgba(252, 205, 32, 0.06) 0%, rgba(247, 255, 0, 0.06) 99.99%);
+
+;
 
     --shadow-why-go-solar-hover: 0px 0px 12px 0px #FCCD201F;
     --why-go-solar-border: none;
