@@ -250,10 +250,6 @@ body.dark{
     }
 }
 
-/* Tablet */
-@media (max-width: 768px){
-
-}
 
 /* Mobile */
 @media (max-width: 576px){
@@ -309,6 +305,13 @@ body.dark{
 
     .caption-h2 {
         font-size: 48px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px){
+    .section__header{
+        text-align: left;
     }
 }
 
