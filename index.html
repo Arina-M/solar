@@ -46,12 +46,12 @@
                     </ul> 
                 </nav>
                 <div class="header__buttons">
-                    <button type="button" class="secondary-btn">
+                    <a href="#calculator" class="secondary-btn">
                         <svg>
                             <use href="./assets/images/symbol-defs.svg#icon-calculator"></use>
                         </svg>
                         Check your savings
-                    </button>
+                    </a>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                         <svg>
                             <use href="./assets/images/symbol-defs.svg#icon-sun"></use>
@@ -77,12 +77,12 @@
                             </h1>
                             <p class="hero__text"><span>Save up to 70%</span> on your monthly electric bills and protect your home from rising utility rates with custom solar solutions.</p>
                             <div class="hero__buttons">
-                                <button type="button" class="primary-btn">
+                                <a href="#contact-form" class="primary-btn">
                                     Get my free quote 
                                     <svg>
                                         <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
                                     </svg>
-                                </button>
+                                </a>
                                 <button type="button" class="secondary-btn">
                                     Learn more
                                 </button>
@@ -285,7 +285,7 @@
                     <div class="solar-checklist__container">
                         <div class="accordion">
                             <div class="accordion-item active" data-fit="01">
-                                <button class="accordion-header">
+                                <button type="button" class="accordion-header">
                                     <span class="accordion-num">01</span>
                                     <span class="accordion-title">Adequate Sun Exposure</span>
                                     <span class="accordion-icon"></span>
@@ -299,7 +299,7 @@
                             </div>
 
                             <div class="accordion-item" data-fit="02">
-                                <button class="accordion-header">
+                                <button type="button" class="accordion-header">
                                     <span class="accordion-num">02</span>
                                     <span class="accordion-title">Roof in good condition</span>
                                     <span class="accordion-icon"></span>
@@ -312,7 +312,7 @@
                                 </div>
                             </div>
                             <div class="accordion-item" data-fit="03">
-                                <button class="accordion-header">
+                                <button type="button" class="accordion-header">
                                     <span class="accordion-num">03</span>
                                     <span class="accordion-title">Moderate to high electricity usage</span>
                                     <span class="accordion-icon"></span>
@@ -382,7 +382,7 @@
                             <p><span>Power up & save.</span> Once installed, watch your electric bill drop to zero.</p>
                         </li>
                     </ul> 
-                    <button type="button" class="primary-btn">Get Started</button>   
+                    <a href="#contact-form" class="primary-btn">Get Started</a>   
                 </div>
             </section>
             <!-- HOW IT WORKS SECTION END -->
@@ -414,12 +414,12 @@
                         </ul>
 
                         <div class="tax-credit__buttons">
-                            <button class="primary-btn">
+                            <a href="#contact-form" class="primary-btn">
                                 Start Saving Today
                                 <svg>
                                     <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
                                 </svg>
-                            </button>
+                            </a>
                             <a href="#" class="link-btn">
                                 Official IRS Guide 
                                 <svg>
@@ -502,7 +502,7 @@
 
 
             <!-- CONTACT FORM SECTION START -->
-            <section class="contact-form">
+            <section class="contact-form" id="contact-form">
                 <div class="container">
                     <div class="section__header">
                         <p class="mini-header">Get a free quote</p>
@@ -559,35 +559,58 @@
                             </li>
                         </ul>
 
-                        <form class="form">
+                        <form class="form" id="quoteForm" novalidate>
                             <div class="form-row">
                                 <label for="firstName">First name
-                                    <input id="firstName" name="firstName" type="text" placeholder="John">
+                                    <input id="firstName" name="firstName" type="text" placeholder="John" required aria-describedby="firstNameError">
+                                    <span class="form-error" id="firstNameError" aria-live="polite"></span>
                                 </label>
                                 <label for="lastName">Last name
-                                    <input id="lastName" name="lastName" type="text" placeholder="Smith">
+                                    <input id="lastName" name="lastName" type="text" placeholder="Smith" required aria-describedby="lastNameError">
+                                    <span class="form-error" id="lastNameError" aria-live="polite"></span>
                                 </label>
                             </div>
                             <label for="userEmail">E-mail
-                                <input id="userEmail" name="userEmail" type="email" placeholder="john@example.com">
+                                <input id="userEmail" name="userEmail" type="email" placeholder="john@example.com" required aria-describedby="userEmailError">
+                                <span class="form-error" id="userEmailError" aria-live="polite"></span>
                             </label>
                             <label for="userPhone">Phone
-                                <input id="userPhone" name="userPhone" type="tel" placeholder="+1 (555) 000-0000">
+                                <input id="userPhone" name="userPhone" type="tel" placeholder="+1 (555) 000-0000" required aria-describedby="userPhoneError">
+                                <span class="form-error" id="userPhoneError" aria-live="polite"></span>
                             </label>
-                            <label for="userBill" class="user-bill-select">Monthly electricity bill
-                                <select id="userBill" name="userBill">
-                                    <option>$100 - $200</option>
-                                    <option>$200 - $300</option>
-                                    <option>$300 - $400</option>
-                                </select>
-                                <span class="select-arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="./assets/images/symbol-defs.svg#icon-input-arrow"></use>
-                                    </svg>
+                            <div class="custom-select" data-validation-field="userBill">
+                                <span class="select-label" id="userBillLabel">
+                                    Monthly electricity bill
                                 </span>
-                            </label>
+                                <input id="userBill" name="userBill" type="hidden" value="$100 - $200" required>
+                                <button type="button" class="custom-select__trigger" aria-labelledby="userBillLabel userBillValue" aria-describedby="userBillError" aria-invalid="false" aria-expanded="false">
+                                    <span class="custom-select__value" id="userBillValue">
+                                        $100 - $200
+                                    </span>
+                                    <span class="select-arrow">
+                                        <svg>
+                                            <use href="./assets/images/symbol-defs.svg#icon-input-arrow"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <ul class="custom-select__dropdown">
+                                    <li class="custom-select__option">
+                                        Under $100
+                                    </li>
+                                    <li class="custom-select__option active">
+                                        $100 - $200
+                                    </li>
+                                    <li class="custom-select__option">
+                                        $200 - $300
+                                    </li>
+                                    <li class="custom-select__option">
+                                        Over $300
+                                    </li>
+                                </ul>
+                                <span class="form-error" id="userBillError" aria-live="polite"></span>
+                            </div>
                             <label for="tick" class="checkbox">
-                                <input id="tick" name="tick" type="checkbox">
+                                <input id="tick" name="tick" type="checkbox" required aria-describedby="tickError">
                                 <span class="checkbox__box">
                                     <svg>
                                         <use href="./assets/images/symbol-defs.svg#icon-tick"></use>
@@ -595,8 +618,11 @@
                                 </span>
                                 I agree to the processing of personal data
                             </label>
-                            <button class="primary-btn full">Get My Free Quote 
-                                <svg>
+                            <span class="form-error form-error--checkbox" id="tickError" aria-live="polite"></span>
+                            <button type="submit" class="primary-btn full form-submit">
+                                <span class="form-submit__spinner" aria-hidden="true"></span>
+                                <span class="form-submit__text">Get My Free Quote</span>
+                                <svg class="form-submit__icon" aria-hidden="true">
                                     <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
                                 </svg>
                             </button>
@@ -748,7 +774,7 @@
                             <a href="#">Cookie policy</a>
                         </div>
                     </div>
-                    <button class="primary-btn" type="button">Get my free quote</button>
+                    <a href="#contact-form" class="primary-btn">Get my free quote</a>
                 </div>
 
                 <div class="footer-bottom">

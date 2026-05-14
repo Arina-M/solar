@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solar</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.css"
+                integrity="sha512-Y0MM+V6ymRKN2zStTqzQ227DWhhp4Mzdo6gnlRnuaNCbc+YN/ZH0sBCLTM4M0oSy9c9VKiCvd4Jk44aCLrNS5Q=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer" />
+        <link rel="icon" href="./assets/images/favicon.png" type="image/png">        
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+        <!-- styles -->
+        <link rel="stylesheet" href="./css/styles.css">
+        <script src="./assets/js/main.js" defer></script>
+
+
+    </head>
+    <body>
+
+        <header>
+            <div class="container header-container header--404">
+                <a href="./index.html">
+                    <img src="./assets/images/logo.png" alt="logo" class="header__logo"> 
+                </a>
+                <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+                    <div class="mobile-menu__top">
+                        <a href="./index.html">
+                            <img src="./assets/images/logo.png" alt="logo" class="header__logo">
+                        </a>
+                        <button class="menu-toggle menu-toggle--close" type="button" aria-label="Close menu">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                    <ul class="header__list-menu">
+                        <li class="list-menu-item"><a href="./index.html#how-it-works" class="list-menu-link">How It Works</a></li>
+                        <li class="list-menu-item"><a href="./index.html#calculator" class="list-menu-link">Savings calculator</a></li>
+                        <li class="list-menu-item"><a href="./index.html#why-go-solar" class="list-menu-link">Why solar</a></li>
+                        <li class="list-menu-item"><a href="./index.html#faq" class="list-menu-link">FAQs</a></li>
+                    </ul> 
+                </nav>
+                <div class="header__buttons">
+                    <a href="./index.html#contact-form" class="secondary-btn">
+                        Get free quote
+                        <svg>
+                            <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <svg>
+                            <use href="./assets/images/symbol-defs.svg#icon-sun"></use>
+                        </svg>
+                    </button>
+                    <button class="menu-toggle menu-toggle--open" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
+                        <svg>
+                            <use href="./assets/images/symbol-defs.svg#icon-menu"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+       <main>
+
+            <section class="error">
+                <div class="container">
+                    <div class="error-container">
+                        <div class="error-code">
+                            <span>4</span>
+                            <div class="sun-wrapper">
+                                <div class="sun-rays">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <span class="sun-number">0</span>
+                            </div>
+                            <span>4</span>
+                        </div>
+                        <div class="section__header">
+                            <p class="mini-header">Page not found</p>
+                            <h2 class="caption-h2">Looks like this page went off-grid</h2>
+                            <p class="subtitle subtitle-404">The page you're looking for doesn't exist or has been moved. But your path to solar savings is still very much on.</p>
+                        </div>
+                        <div class="error-buttons">
+                            <a href="/" class="primary-btn">
+                                Back To Home
+                                <svg>
+                                        <use href="./assets/images/symbol-defs.svg#icon-arrow"></use>
+                                    </svg>
+                            </a>
+                            <a href="./index.html/#contact-form" class="secondary-btn">
+                                Get Free Quote
+                            </a>
+                        </div>
+                        <div class="sections-navigation">
+                            <p>Or jump to a section</p>
+                            <nav class="sections-nav">
+                                <ul class="sections-nav__list">
+                                    <li><a href="./index.html#how-it-works">How It Works</a></li>
+                                    <li><a href="./index.html#calculator">Savings calculator</a></li>
+                                    <li><a href="./index.html#why-go-solar">Why solar</a></li>
+                                    <li><a href="./index.html#faq">FAQs</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+        
+        <footer class="footer footer-404">
+            <div class="container">
+                <div class="footer-top"></div>
+                <div class="footer-bottom">
+                    <p class="footer-copy">
+                        © Created by Netio 2026
+                    </p>
+                    <a href="tel:+3053486434649" class="footer-phone">
+                        +305-34864-34649
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

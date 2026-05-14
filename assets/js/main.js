@@ -28,6 +28,25 @@ const menuOpenButton = document.querySelector(".menu-toggle--open");
 const menuCloseButton = document.querySelector(".menu-toggle--close");
 const menuLinks = mainNav?.querySelectorAll(".list-menu-link");
 
+const hasCalculator = [
+    billRange,
+    kwRange,
+    yearsRange,
+    billValue,
+    kwValue,
+    yearsValue,
+    calculateBtn,
+    totalEl,
+    annualEl,
+    paybackEl,
+    roiEl,
+    systemCostEl,
+    taxCreditEl,
+    newCostEl,
+    monthlyEl,
+    systemKwEl
+].every(Boolean);
+
 //burger menu
 if (mainNav && menuOpenButton && menuCloseButton) {
     const setMenuState = isOpen => {
@@ -184,58 +203,38 @@ function calculate() {
 
 // --- EVENTS ---
 
-billRange.addEventListener("input", e => {
-    state.bill = +e.target.value;
-    updateUI();
-});
-
-kwRange.addEventListener("input", e => {
-    state.kw = +e.target.value;
-    updateUI();
-});
-
-yearsRange.addEventListener("input", e => {
-    state.years = +e.target.value;
-    updateUI();
-});
-
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        state.bill = +btn.dataset.value;
+if (hasCalculator) {
+    billRange.addEventListener("input", e => {
+        state.bill = +e.target.value;
         updateUI();
     });
-});
 
-calculateBtn.addEventListener("click", () => {
-    calculate();
-});
-
-// --- INIT ---
-
-updateUI();
-calculate(); 
-
-
-
-
-
-
-//accordion Why Solar
-const items = document.querySelectorAll(".accordion-item");
-
-items.forEach(item => {
-    const header = item.querySelector(".accordion-header");
-
-    header.addEventListener("click", () => {
-        const isActive = item.classList.contains("active");
-
-        items.forEach(i => i.classList.remove("active"));
-
-        if (!isActive) {
-            item.classList.add("active");
-        }
+    kwRange.addEventListener("input", e => {
+        state.kw = +e.target.value;
+        updateUI();
     });
-});
+
+    yearsRange.addEventListener("input", e => {
+        state.years = +e.target.value;
+        updateUI();
+    });
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            state.bill = +btn.dataset.value;
+            updateUI();
+        });
+    });
+
+    calculateBtn.addEventListener("click", () => {
+        calculate();
+    });
+
+    // --- INIT ---
+
+    updateUI();
+    calculate();
+}
 
 
 
@@ -246,6 +245,8 @@ const track = document.querySelector(".slider-track");
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 const slider = document.querySelector(".slider");
+const nextButton = document.querySelector(".next");
+const prevButton = document.querySelector(".prev");
 
 let index = 0;
 
@@ -264,7 +265,7 @@ function startAutoplay() {
     autoplayInterval = setInterval(() => {
         index = (index + 1) % slides.length;
         updateSlider();
-    }, 4000); // каждые 4 сек
+    }, 4000);
 }
 
 function stopAutoplay() {
@@ -281,33 +282,35 @@ function pauseAutoplay() {
     }, 10000); 
 }
 
-// --- arrows ---
+if (track && slider && nextButton && prevButton && slides.length && dots.length) {
+    // --- arrows ---
 
-document.querySelector(".next").onclick = () => {
-    index = (index + 1) % slides.length;
-    updateSlider();
-    pauseAutoplay();
-};
-
-document.querySelector(".prev").onclick = () => {
-    index = (index - 1 + slides.length) % slides.length;
-    updateSlider();
-    pauseAutoplay();
-};
-
-dots.forEach(dot => {
-    dot.addEventListener("click", () => {
-        index = +dot.dataset.index;
+    nextButton.addEventListener("click", () => {
+        index = (index + 1) % slides.length;
         updateSlider();
         pauseAutoplay();
     });
-});
 
-slider.addEventListener("mouseenter", stopAutoplay);
-slider.addEventListener("mouseleave", startAutoplay);
+    prevButton.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateSlider();
+        pauseAutoplay();
+    });
 
-updateSlider();
-startAutoplay();
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            index = +dot.dataset.index;
+            updateSlider();
+            pauseAutoplay();
+        });
+    });
+
+    slider.addEventListener("mouseenter", stopAutoplay);
+    slider.addEventListener("mouseleave", startAutoplay);
+
+    updateSlider();
+    startAutoplay();
+}
 
 
 
@@ -316,62 +319,322 @@ startAutoplay();
 
 
 // FAQ
-
 const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach(item => {
-    const header = item.querySelector(".faq-header");
+if (faqItems.length) {
+    faqItems.forEach(item => {
+        const header = item.querySelector(".faq-header");
 
-    header.addEventListener("click", () => {
-
-        const isActive = item.classList.contains("active");
-
-        faqItems.forEach(i => {
-            i.classList.remove("active");
-        });
-
-        if (!isActive) {
-            item.classList.add("active");
+        if (!header) {
+            return;
         }
+
+        header.addEventListener("click", () => {
+
+            const isActive = item.classList.contains("active");
+
+            faqItems.forEach(i => {
+                i.classList.remove("active");
+            });
+
+            if (!isActive) {
+                item.classList.add("active");
+            }
+        });
     });
-});
+}
 
 
 
 
-
-//checklist number highlights
+//accordion closing and num highlights
 const accordionItems = document.querySelectorAll(".accordion-item");
 const markers = document.querySelectorAll(".marker");
 
-accordionItems.forEach(item => {
+if (accordionItems.length) {
+    accordionItems.forEach(item => {
 
-    const header = item.querySelector(".accordion-header");
+        const header = item.querySelector(".accordion-header");
 
-    header.addEventListener("click", () => {
+        if (!header) {
+            return;
+        }
 
-        const fitId = item.dataset.fit;
+        header.addEventListener("click", () => {
 
-        // accordion active
+            const fitId = item.dataset.fit;
+            const wasActive = item.classList.contains("active");
 
-        accordionItems.forEach(i => {
-            i.classList.remove("active");
-        });
 
-        item.classList.add("active");
+            accordionItems.forEach(i => {
+                i.classList.remove("active");
+            });
 
-        // marker active
+            markers.forEach(marker => {
+                marker.classList.remove("active");
+            });
 
-        markers.forEach(marker => {
+            if (!wasActive) {
 
-            marker.classList.remove("active");
+                item.classList.add("active");
 
-            if (marker.dataset.fit === fitId) {
-                marker.classList.add("active");
+                markers.forEach(marker => {
+
+                    if (marker.dataset.fit === fitId) {
+                        marker.classList.add("active");
+                    }
+
+                });
+
             }
 
         });
 
     });
+}
 
-});
+
+
+
+
+// contact form validation
+
+const form = document.getElementById("quoteForm");
+
+if (form) {
+    const submitButton = form.querySelector(".form-submit");
+    const submitButtonText = submitButton?.querySelector(".form-submit__text");
+    const defaultSubmitText = submitButtonText?.textContent || "";
+
+    const fields = {
+        firstName: {
+            input: document.getElementById("firstName"),
+            control: document.getElementById("firstName"),
+            error: document.getElementById("firstNameError"),
+            requiredMessage: "Name is required",
+            validate(value) {
+                const trimmedValue = value.trim();
+
+                if (!trimmedValue) {
+                    return this.requiredMessage;
+                }
+
+                return trimmedValue.length < 2 ? "Minimum 2 characters" : "";
+            }
+        },
+        lastName: {
+            input: document.getElementById("lastName"),
+            control: document.getElementById("lastName"),
+            error: document.getElementById("lastNameError"),
+            requiredMessage: "Name is required",
+            validate(value) {
+                const trimmedValue = value.trim();
+
+                if (!trimmedValue) {
+                    return this.requiredMessage;
+                }
+
+                return trimmedValue.length < 2 ? "Minimum 2 characters" : "";
+            }
+        },
+        userEmail: {
+            input: document.getElementById("userEmail"),
+            control: document.getElementById("userEmail"),
+            error: document.getElementById("userEmailError"),
+            validate(value) {
+                const trimmedValue = value.trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!trimmedValue) {
+                    return "Mail is required";
+                }
+
+                return emailPattern.test(trimmedValue) ? "" : "Invalid email format";
+            }
+        },
+        userPhone: {
+            input: document.getElementById("userPhone"),
+            control: document.getElementById("userPhone"),
+            error: document.getElementById("userPhoneError"),
+            validate(value) {
+                const trimmedValue = value.trim();
+                const phoneCharactersPattern = /^[+\d\s().-]+$/;
+                const digitsOnly = trimmedValue.replace(/\D/g, "");
+
+                if (!trimmedValue) {
+                    return "Telephone required";
+                }
+
+                if (!phoneCharactersPattern.test(trimmedValue) || digitsOnly.length < 7 || digitsOnly.length > 15) {
+                    return "Invalid phone format";
+                }
+
+                return "";
+            }
+        },
+        userBill: {
+            input: document.getElementById("userBill"),
+            control: document.querySelector(".custom-select__trigger"),
+            error: document.getElementById("userBillError"),
+            validate(value) {
+                return value.trim() ? "" : "Monthly electricity bill is required";
+            }
+        },
+        tick: {
+            input: document.getElementById("tick"),
+            control: document.querySelector(".checkbox__box"),
+            error: document.getElementById("tickError"),
+            validate(_, input) {
+                return input.checked ? "" : "Consent is required";
+            }
+        }
+    };
+
+    const getFieldValue = field => field.input.type === "checkbox" ? "" : field.input.value;
+
+    const isFieldReady = field => Boolean(field.input && field.error);
+
+    const setFieldState = (field, errorMessage, isActivelyEditing = false) => {
+        if (!isFieldReady(field)) {
+            return;
+        }
+
+        const hasError = Boolean(errorMessage);
+
+        field.error.textContent = errorMessage;
+        field.input.setAttribute("aria-invalid", String(hasError));
+        field.control?.setAttribute("aria-invalid", String(hasError));
+        field.control?.classList.toggle("is-invalid", hasError && !isActivelyEditing);
+        field.control?.classList.toggle("is-fixing", hasError && isActivelyEditing);
+    };
+
+    const validateField = (field, isActivelyEditing = false) => {
+        if (!isFieldReady(field)) {
+            return true;
+        }
+
+        const errorMessage = field.validate(getFieldValue(field), field.input);
+
+        setFieldState(field, errorMessage, isActivelyEditing);
+
+        return !errorMessage;
+    };
+
+    const setSubmitLoading = isLoading => {
+        if (!submitButton || !submitButtonText) {
+            return;
+        }
+
+        submitButton.classList.toggle("loading", isLoading);
+        submitButton.disabled = isLoading;
+        submitButton.setAttribute("aria-busy", String(isLoading));
+        submitButtonText.textContent = isLoading ? "Sending..." : defaultSubmitText;
+    };
+
+    setSubmitLoading(false);
+
+    Object.values(fields).forEach(field => {
+        if (!isFieldReady(field)) {
+            return;
+        }
+
+        setFieldState(field, "");
+
+        const eventName = field.input.type === "checkbox" || field.input.type === "hidden" ? "change" : "input";
+
+        field.input.addEventListener(eventName, () => {
+            validateField(field, true);
+        });
+
+        field.input.addEventListener("blur", () => {
+            validateField(field);
+        });
+    });
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (submitButton?.classList.contains("loading")) {
+            return;
+        }
+
+        const validationResults = Object.values(fields).map(field => validateField(field));
+        const isValid = validationResults.every(Boolean);
+
+        if (isValid) {
+            setSubmitLoading(true);
+
+            window.setTimeout(() => {
+                window.location.href = "./success.html";
+            }, 1000);
+        }
+    });
+}
+
+//select in contact form
+
+const select = document.querySelector(".custom-select");
+
+if (select) {
+    const trigger = select.querySelector(".custom-select__trigger");
+    const options = select.querySelectorAll(".custom-select__option");
+    const value = select.querySelector(".custom-select__value");
+    const selectInput = document.getElementById("userBill");
+
+    if (trigger && value && selectInput) {
+        // open / close
+
+        trigger.addEventListener("click", (e) => {
+
+            e.stopPropagation();
+
+            select.classList.toggle("open");
+            trigger.setAttribute("aria-expanded", String(select.classList.contains("open")));
+
+        });
+
+        // select option
+
+        if (options.length) {
+            options.forEach(option => {
+
+                option.addEventListener("click", (e) => {
+
+                    e.stopPropagation();
+
+                    // active
+
+                    options.forEach(o => {
+                        o.classList.remove("active");
+                    });
+
+                    option.classList.add("active");
+
+                    // text
+
+                    value.textContent = option.textContent;
+                    selectInput.value = option.textContent.trim();
+                    selectInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+                    // close
+
+                    select.classList.remove("open");
+                    trigger.setAttribute("aria-expanded", "false");
+
+                });
+
+            });
+        }
+
+        // click outside
+
+        document.addEventListener("click", (e) => {
+
+            if (!select.contains(e.target)) {
+                select.classList.remove("open");
+                trigger.setAttribute("aria-expanded", "false");
+            }
+
+        });
+    }
+}
