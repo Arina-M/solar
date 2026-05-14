@@ -2788,22 +2788,22 @@ input[type="range"]:active::-webkit-slider-thumb {
         gap: 20px;
     }
 
-    .form input,
+    /* .form input,
     .form select {
         height: 60px;
         padding: 16px;
         font-size: 16px;
         border-radius: 12px;
-    }
+    } */
 
     .form select {
         padding-right: 44px;
     }
 
-    .form label,
+    /* .form label,
     .form label.checkbox {
         font-size: 16px;
-    }
+    } */
 
     .contact-form__container {
         margin-top: 40px;
